@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAJGWnY9iF67_NJ-mJ5VgnkXZCRXC75_w">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+   
+
+  /* var styleArray = [
+        {
+            featureType: "all",
+            stylers: [
+              {color: "#e6e6e6"}
+            ]
+          },{
+            featureType: "road",
+            stylers: [
+              {color: "#FFFFFF"}
+            ]
+          },{
+            featureType: "water",
+            stylers: [
+              {color: "#517Ba5"}
+            ]
+          }
+//Add more styles here
+];*/
+        
+        var mapOptions = {
+          center: { lat: 38.907309, lng: -77.036620},
+          zoom: 15,
+          //styles: styleArray
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+
+map.data.loadGeoJson('http://opendata.dc.gov/datasets/d6364e8d068e4e558c82040569f5d33a_23.geojson');
+
+}
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+<body>
+<div id="map-canvas"></div>
+</body>
+</html>
